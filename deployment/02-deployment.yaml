@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: labbapp-deployment
+  namespace: kuberneteslabb
+  labels:
+    app: labbapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: labbapp
+  template:
+    metadata:
+      labels:
+        app: labbapp
+    spec:
+      containers:
+        - name: labbapp
+          image: viktorkodet/kuberneteslabben:taggen
+          imagePullPolicy: IfNotPresent

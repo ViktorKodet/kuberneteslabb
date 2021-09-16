@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: labbapp-service
+  namespace: kuberneteslabb
+spec:
+  selector:
+    app: labbapp
+  ports:
+    - name: application
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
